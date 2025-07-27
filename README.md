@@ -96,7 +96,9 @@ guiarstr/
 
 Here’s how the build and test process looks in the terminal:
 
-![Build and Test Screenshot](assets/build_and_test.png)
+<p align="center">
+  <img src="assets/build_and_test.png" alt="Build and Test Screenshot" width="700"/>
+</p>
 
 
 -----------------------------------------

@@ -22,8 +22,9 @@
 
 #include "guiarstr.h"
 #include <ctype.h>    // tolower, toupper, isspace
-#include <string.h>   // strlen, strstr, memcpy, strcmp
+#include <string.h>   // strlen, strstr, memcpy, strcmp, strchr, strcat
 #include <stdlib.h>   // malloc, free
+#include <stdbool.h>  // bool
 
 char* guiarstr_trim(char* str) {
     if (!str) return NULL;
@@ -60,6 +61,7 @@ char** guiarstr_split(const char* str, char delimiter, size_t* count) {
 
             memcpy(token, start, len);
             token[len] = '\0';
+
             if (size >= capacity) {
                 capacity *= 2;
                 char** temp = realloc(result, capacity * sizeof(char*));
@@ -72,7 +74,7 @@ char** guiarstr_split(const char* str, char delimiter, size_t* count) {
         ptr++;
     }
 
-    // last token
+    // Last token
     size_t len = ptr - start;
     char* token = malloc(len + 1);
     if (!token) goto cleanup;
@@ -105,7 +107,7 @@ char* guiarstr_replace(const char* str, const char* from, const char* to) {
     size_t from_len = strlen(from);
     size_t to_len = strlen(to);
 
-    // First, count how many replacements are needed
+    // Count replacements needed
     size_t count = 0;
     const char* tmp = str;
     while ((tmp = strstr(tmp, from))) {
@@ -129,7 +131,7 @@ char* guiarstr_replace(const char* str, const char* from, const char* to) {
         current = tmp + from_len;
     }
 
-    strcpy(dest, current); // copy remaining
+    strcpy(dest, current);
     return result;
 }
 
@@ -145,5 +147,60 @@ void guiarstr_toupper(char* str) {
     for (; *str; ++str) {
         *str = toupper((unsigned char)*str);
     }
+}
+
+bool guiarstr_startswith(const char* str, const char* prefix) {
+    if (!str || !prefix) return false;
+    while (*prefix) {
+        if (*str++ != *prefix++) return false;
+    }
+    return true;
+}
+
+char* guiarstr_strip(char* str, const char* chars_to_remove) {
+    if (!str || !chars_to_remove) return str;
+
+    // Trim leading
+    while (*str && strchr(chars_to_remove, *str)) {
+        str++;
+    }
+
+    if (*str == '\0') return str;
+
+    // Trim trailing
+    char* end = str + strlen(str) - 1;
+    while (end > str && strchr(chars_to_remove, *end)) {
+        end--;
+    }
+
+    *(end + 1) = '\0';
+    return str;
+}
+
+char* guiarstr_join(char** strings, size_t count, const char* separator) {
+    if (!strings || !separator) return NULL;
+
+    size_t sep_len = strlen(separator);
+    size_t total_length = 0;
+
+    for (size_t i = 0; i < count; ++i) {
+        total_length += strlen(strings[i]);
+        if (i < count - 1) {
+            total_length += sep_len;
+        }
+    }
+
+    char* result = malloc(total_length + 1);
+    if (!result) return NULL;
+
+    result[0] = '\0';
+    for (size_t i = 0; i < count; ++i) {
+        strcat(result, strings[i]);
+        if (i < count - 1) {
+            strcat(result, separator);
+        }
+    }
+
+    return result;
 }
 

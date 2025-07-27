@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "../include/guiarstr.h"
 
 #define ASSERT_EQ_STR(actual, expected) \
@@ -19,7 +20,23 @@
         printf("[PASS] %zu\n", actual); \
     }
 
-int main() {
+#define ASSERT_TRUE(expr) \
+    if (!(expr)) { \
+        fprintf(stderr, "[FAIL] ASSERT_TRUE failed (line %d)\n", __LINE__); \
+        exit(1); \
+    } else { \
+        printf("[PASS] ASSERT_TRUE\n"); \
+    }
+
+#define ASSERT_FALSE(expr) \
+    if (expr) { \
+        fprintf(stderr, "[FAIL] ASSERT_FALSE failed (line %d)\n", __LINE__); \
+        exit(1); \
+    } else { \
+        printf("[PASS] ASSERT_FALSE\n"); \
+    }
+
+int main(void) {
     printf("Running GuiarStr tests...\n\n");
 
     // === Trim ===
@@ -52,6 +69,27 @@ int main() {
     char upper[] = "guiarStr";
     guiarstr_toupper(upper);
     ASSERT_EQ_STR(upper, "GUIARSTR");
+
+    // === StartsWith ===
+    ASSERT_TRUE(guiarstr_startswith("GuiarStr", "Guiar"));
+    ASSERT_FALSE(guiarstr_startswith("GuiarStr", "Str"));
+    ASSERT_TRUE(guiarstr_startswith("abc", ""));
+
+    // === Strip ===
+    char strip1[] = "***hello***";
+    ASSERT_EQ_STR(guiarstr_strip(strip1, "*"), "hello");
+
+    char strip2[] = "!!abc!!";
+    ASSERT_EQ_STR(guiarstr_strip(strip2, "!"), "abc");
+
+    char strip3[] = "><><okba><>";
+    ASSERT_EQ_STR(guiarstr_strip(strip3, "><"), "okba");
+
+    // === Join ===
+    char* words[] = {"C", "is", "fun"};
+    char* joined = guiarstr_join(words, 3, " ");
+    ASSERT_EQ_STR(joined, "C is fun");
+    free(joined);
 
     printf("\nAll tests passed successfully!\n");
     return 0;

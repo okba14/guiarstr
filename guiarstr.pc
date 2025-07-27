@@ -1,0 +1,10 @@
+prefix=/home/old/.local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: guiarstr
+Description: A minimal string manipulation library for C
+Version: 1.1.0
+Libs: -L${libdir} -lguiarstr
+Cflags: -I${includedir}

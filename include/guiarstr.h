@@ -28,6 +28,7 @@ extern "C" {
 #endif
 
 #include <stddef.h>  // for size_t
+#include <stdbool.h> // for bool
 
 /**
  * @brief Removes leading and trailing whitespace from a string in place.
@@ -79,9 +80,36 @@ void guiarstr_tolower(char* str);
  */
 void guiarstr_toupper(char* str);
 
+/**
+ * @brief Checks if a string starts with a given prefix.
+ *
+ * @param str The input string.
+ * @param prefix The prefix to check.
+ * @return true if str starts with prefix, false otherwise.
+ */
+bool guiarstr_startswith(const char* str, const char* prefix);
+
+/**
+ * @brief Strips specified characters from both ends of a string in place.
+ *
+ * @param str The string to modify.
+ * @param chars_to_remove A string of characters to strip.
+ * @return A pointer to the stripped string (may be moved forward).
+ */
+char* guiarstr_strip(char* str, const char* chars_to_remove);
+
+/**
+ * @brief Joins an array of strings with a separator.
+ *
+ * @param strings Array of strings.
+ * @param count Number of strings.
+ * @param separator Separator string.
+ * @return A newly allocated joined string (caller must free it).
+ */
+char* guiarstr_join(char** strings, size_t count, const char* separator);
+
 #ifdef __cplusplus
 }
 #endif
 
 #endif // GUIARSTR_H
-

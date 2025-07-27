@@ -1,6 +1,9 @@
+// usage.c - Example usage of the guiarstr library
+// Compile with: gcc usage.c $(pkg-config --cflags --libs guiarstr) -o usage
+
 #include <stdio.h>
 #include <stdlib.h>
-#include "../include/guiarstr.h"
+#include <guiarstr.h>
 
 int main() {
     printf("=== GuiarStr Demo ===\n\n");

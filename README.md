@@ -4,12 +4,11 @@
 
 GuiarStr helps C programmers handle strings more easily.
 
-C has very basic string support. GuiarStr adds useful functions like trim, split, replace, lowercase, and uppercase — all without external dependencies.
+C has very basic string support. GuiarStr adds useful functions like trim, split, replace, lowercase, uppercase, prefix/suffix checks — all without external dependencies.
 
 It’s lightweight, easy to use, and perfect for beginners, embedded systems, CLI tools, or any C project that needs better string handling.
 
-
-                            ------------------------------
+---
 
 ## ✨ Features
 
@@ -18,18 +17,32 @@ It’s lightweight, easy to use, and perfect for beginners, embedded systems, CL
 - `guiarstr_replace` – Replaces all occurrences of a substring with another.
 - `guiarstr_tolower` – Converts a string to lowercase (in-place).
 - `guiarstr_toupper` – Converts a string to uppercase (in-place).
+- `guiarstr_starts_with` – Checks if a string starts with a prefix.
+- `guiarstr_ends_with` – Checks if a string ends with a suffix.
+- `*_ignore_case` variants – Case-insensitive versions of prefix/suffix checks.
 
 ---
 
 ## 📦 Installation
 
-### Option 1: Using `make`
+### Option 1: Build locally
 
 ```bash
-make           # Builds the static library (libguiarstr.a)
-make test      # Builds and runs the test suite
-  
-                           -----------------------------
+make            # Builds the static library (libguiarstr.a)
+make test       # Builds and runs the test suite
+make example    # Builds the usage demo
+
+Option 2: Install to system or user path
+make install PREFIX=$HOME/.local
+This installs:
+
+guiarstr.h to $PREFIX/include
+
+libguiarstr.a to $PREFIX/lib
+
+guiarstr.pc to $PREFIX/lib/pkgconfig for pkg-config integration
+
+---------------------------------------------
 
 🧪 Example Usage
 
@@ -49,10 +62,18 @@ int main() {
 
     return 0;
 }
+🔧 Using with pkg-config
 
-                              -------------------------------
-                              
+----------------------------------------------
+
+gcc main.c $(pkg-config --cflags --libs guiarstr) -o app
+Make sure PKG_CONFIG_PATH is set if you installed to a custom location:
+export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
+
+----------------------------------------------
+
 📁 Project Structure
+makefile
 
 guiarstr/
 ├── include/        # Public header(s)
@@ -61,32 +82,28 @@ guiarstr/
 │   └── guiarstr.c
 ├── tests/          # Unit tests
 │   └── main.c
-├── examples/       # Example programs (optional)
-├── CMakeLists.txt  # CMake build file (optional)
-├── Makefile        # Makefile for building and testing
-├── README.md       # This file
+├── examples/       # Example programs
+│   └── usage.c
+├── guiarstr.pc     # pkg-config metadata
+├── Makefile        # Makefile for building, testing, and install
+├── README.md       # Project documentation
+├── CHANGELOG.md    # Version history
 └── LICENSE         # License information
 
-  
-                              ------------------------------
-                              
-📄 License
 
+-----------------------------------------
+                                      
+📄 License
+                                      
 This project is licensed under the MIT License.
-Copyright (c) GUIAR OQBA
+© GUIAR OQBA
 See LICENSE for details.
 
-                             -------------------------------
+-----------------------------------------
+
 📫 Author
-
 GUIAR OQBA
-Email: techokba@gmail.com
-Website: https://okba14.github.io
-Phone: +2136-71-36-04-38
+📧 Email: techokba@gmail.com
+🌐 Website: https://okba14.github.io
+📱 Phone: +2136-71-36-04-38
 
-
-                              
-This line is signed ✅
-Signed commit test ✅
-Signed commit test ✅
-GitLab signed commit test ✅

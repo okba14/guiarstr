@@ -91,6 +91,14 @@ guiarstr/
 └── LICENSE         # License information
 
 
+
+## 🛠️ Build & Test
+
+Here’s how the build and test process looks in the terminal:
+
+![Build and Test Screenshot](assets/build_and_test.png)
+
+
 -----------------------------------------
                                       
 📄 License

@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.0] - 2025-08-03
+
+### ✨ Added
+- `guiarstr_reverse()` – Safely reverses UTF-8 strings (supports multi-byte characters).
+- `guiarstr_contains()` – Checks if a string contains a substring.
+- `guiarstr_count()` – Counts non-overlapping occurrences of a substring.
+- UTF-8 support in `guiarstr_reverse()`.
+- Aliases added for clarity:
+  - `guiarstr_starts_with`, `guiarstr_ends_with`
+  - `guiarstr_starts_with_ignore_case`, `guiarstr_ends_with_ignore_case`
+
+### 🧪 Testing
+- Enhanced output style with colors, sections, and Unicode symbols (✔ ✘).
+- Categorized tests by feature (e.g., Trim, Split, Reverse, etc.).
+- Improved readability and maintainability of `tests/main.c`.
+
+### 🧹 Changed
+- Removed duplicate function definitions in `src/guiarstr.c`.
+- Internal code cleanup for consistency and clarity.
+- Marked unused internal helper as `static`.
+
+---
+
 ## [1.1.0] - 2025-07-27
 
 ### ✨ Added

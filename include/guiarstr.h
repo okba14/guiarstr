@@ -20,6 +20,7 @@
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
  */
 
+
 #ifndef GUIARSTR_H
 #define GUIARSTR_H
 
@@ -90,6 +91,33 @@ void guiarstr_toupper(char* str);
 bool guiarstr_startswith(const char* str, const char* prefix);
 
 /**
+ * @brief Checks if a string ends with a given suffix.
+ *
+ * @param str The input string.
+ * @param suffix The suffix to check.
+ * @return true if str ends with suffix, false otherwise.
+ */
+bool guiarstr_endswith(const char* str, const char* suffix);
+
+/**
+ * @brief Case-insensitive version of guiarstr_startswith.
+ *
+ * @param str The input string.
+ * @param prefix The prefix to check (case-insensitive).
+ * @return true if str starts with prefix, ignoring case.
+ */
+bool guiarstr_startswithi(const char* str, const char* prefix);
+
+/**
+ * @brief Case-insensitive version of guiarstr_endswith.
+ *
+ * @param str The input string.
+ * @param suffix The suffix to check (case-insensitive).
+ * @return true if str ends with suffix, ignoring case.
+ */
+bool guiarstr_endswithi(const char* str, const char* suffix);
+
+/**
  * @brief Strips specified characters from both ends of a string in place.
  *
  * @param str The string to modify.
@@ -108,8 +136,40 @@ char* guiarstr_strip(char* str, const char* chars_to_remove);
  */
 char* guiarstr_join(char** strings, size_t count, const char* separator);
 
+/**
+ * @brief Reverses a UTF-8 string.
+ *
+ * @param str The string to reverse.
+ * @return A newly allocated reversed string (caller must free it).
+ */
+char* guiarstr_reverse(const char* str);
+
+/**
+ * @brief Checks if a string contains a substring.
+ *
+ * @param haystack The main string.
+ * @param needle The substring to search for.
+ * @return true if found, false otherwise.
+ */
+bool guiarstr_contains(const char* haystack, const char* needle);
+
+/**
+ * @brief Counts the occurrences of a substring in a string.
+ *
+ * @param haystack The main string.
+ * @param needle The substring to search.
+ * @return Number of occurrences.
+ */
+size_t guiarstr_count(const char* haystack, const char* needle);
+
 #ifdef __cplusplus
 }
 #endif
+
+// Friendly aliases (alternative names for readability)
+#define guiarstr_starts_with     guiarstr_startswith
+#define guiarstr_ends_with       guiarstr_endswith
+#define guiarstr_starts_withi    guiarstr_startswithi
+#define guiarstr_ends_withi      guiarstr_endswithi
 
 #endif // GUIARSTR_H

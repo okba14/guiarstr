@@ -5,6 +5,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - 2025-08-09
+
+### Added
+- Dynamic string structure (GuiarStr) with automatic memory management
+- String view structure (GuiarStrView) for non-owning references
+- String builder (GuiarStrBuilder) for efficient string construction
+- Comprehensive error handling with error codes and messages
+- Advanced search functions (find, rfind, find_any, find_not_any)
+- Unicode/UTF-8 support with validation and manipulation functions
+- Number conversion functions (to/from int, long, float, double)
+- File operations (read/write files to/from strings)
+- Formatted string functions (printf-style)
+- Split functions with string delimiters and any character delimiters
+- Split lines function to handle different line endings
+- Replace with limit and replace character functions
+- Remove characters function
+- String view join function
+- CMake build system support
+- Shared library support
+
+### Changed
+- Improved memory management with exponential growth strategy
+- Enhanced performance of all string operations
+- Better error checking and handling
+- More comprehensive test suite
+- Updated documentation
+
+### Fixed
+- Memory leaks in error paths
+- Buffer overflow potential in some functions
+- Unicode handling in reverse function
+- Edge cases in split and join functions
+
+
 ---
 
 ## [1.2.0] - 2025-08-03

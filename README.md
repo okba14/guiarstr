@@ -8,6 +8,7 @@
 ![Platforms](https://img.shields.io/badge/Platforms-Linux%20%7C%20macOS%20%7C%20Windows-orange)
 [![SLSA Level 3 Provenance](https://img.shields.io/badge/SLSA-Level%203-blueviolet.svg)](https://slsa.dev)
 
+
 ---
 
 ## 🚀 Why GuiarStr?

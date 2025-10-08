@@ -18,7 +18,7 @@ jobs:
       - name: 🧰 Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential cmake pkg-config
+          sudo apt-get install -y build-essential cmake pkg-config lcov
 
       # ----- BUILD USING MAKEFILE -----
       - name: 🧱 Build static and shared libraries (Makefile)
@@ -26,11 +26,26 @@ jobs:
           echo "Building with Makefile..."
           make
 
-      - name: 🧪 Run test suite
+      # ----- RUN TESTS WITH COVERAGE -----
+      - name: 🧪 Run tests with coverage
         run: |
-          echo "Running tests..."
+          echo "Running tests with coverage..."
+          make clean || true
+          make CFLAGS="--coverage" LDFLAGS="--coverage"
           make test || echo "No make test target found."
+          lcov --capture --directory . --output-file coverage.info
+          lcov --remove coverage.info '/usr/*' --output-file coverage.info
+          lcov --list coverage.info
 
+      # ----- UPLOAD TO CODECOV -----
+      - name: 📤 Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.info
+          fail_ci_if_error: true
+
+      # ----- BUILD EXAMPLE -----
       - name: 💡 Build example program
         run: |
           echo "Building example..."
@@ -42,7 +57,7 @@ jobs:
           echo "Installing to $HOME/.local ..."
           make install PREFIX=$HOME/.local
 
-      # Verify pkg-config installation
+      # ----- VERIFY PKG-CONFIG -----
       - name: 🔍 Verify pkg-config
         run: |
           export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
@@ -57,7 +72,7 @@ jobs:
           cmake ..
           make -j$(nproc)
           sudo make install
-        continue-on-error: true  # لا يتوقف إن فشلت خطوة CMake
+        continue-on-error: true  
 
       # ----- TEST COMPILE AN EXAMPLE USING PKG-CONFIG -----
       - name: 🧪 Test compile example with pkg-config

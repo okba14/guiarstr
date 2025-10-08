@@ -1,4 +1,4 @@
-name: Build & Test guiarstr Library
+name: Build & Test GUIARSTR Library
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
       - name: 🧰 Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential cmake pkg-config lcov
+          sudo apt-get install -y build-essential cmake pkg-config
 
       # ----- BUILD USING MAKEFILE -----
       - name: 🧱 Build static and shared libraries (Makefile)
@@ -26,26 +26,11 @@ jobs:
           echo "Building with Makefile..."
           make
 
-      # ----- RUN TESTS WITH COVERAGE -----
-      - name: 🧪 Run tests with coverage
+      - name: 🧪 Run test suite
         run: |
-          echo "Running tests with coverage..."
-          make clean || true
-          make CFLAGS="--coverage" LDFLAGS="--coverage"
+          echo "Running tests..."
           make test || echo "No make test target found."
-          lcov --capture --directory . --output-file coverage.info
-          lcov --remove coverage.info '/usr/*' --output-file coverage.info
-          lcov --list coverage.info
 
-      # ----- UPLOAD TO CODECOV -----
-      - name: 📤 Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.info
-          fail_ci_if_error: true
-
-      # ----- BUILD EXAMPLE -----
       - name: 💡 Build example program
         run: |
           echo "Building example..."
@@ -57,7 +42,7 @@ jobs:
           echo "Installing to $HOME/.local ..."
           make install PREFIX=$HOME/.local
 
-      # ----- VERIFY PKG-CONFIG -----
+      # Verify pkg-config installation
       - name: 🔍 Verify pkg-config
         run: |
           export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig

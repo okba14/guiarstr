@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](#) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE) 
-[![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)](#) 
+[![Build & Test](https://github.com/okba14/guiarstr/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/okba14/guiarstr/actions/workflows/c-cpp.yml)
 [![UTF-8 Support](https://img.shields.io/badge/UTF--8-Full%20Support-orange.svg)](#)
 
 ---

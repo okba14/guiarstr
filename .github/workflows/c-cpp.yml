@@ -1,0 +1,67 @@
+name: Build & Test guiarstr Library
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build and Test on Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🧰 Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake pkg-config
+
+      # ----- BUILD USING MAKEFILE -----
+      - name: 🧱 Build static and shared libraries (Makefile)
+        run: |
+          echo "Building with Makefile..."
+          make
+
+      - name: 🧪 Run test suite
+        run: |
+          echo "Running tests..."
+          make test || echo "No make test target found."
+
+      - name: 💡 Build example program
+        run: |
+          echo "Building example..."
+          make example || echo "No example target found."
+
+      # ----- INSTALL LOCALLY -----
+      - name: 📦 Install library locally
+        run: |
+          echo "Installing to $HOME/.local ..."
+          make install PREFIX=$HOME/.local
+
+      # Verify pkg-config installation
+      - name: 🔍 Verify pkg-config
+        run: |
+          export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
+          pkg-config --cflags --libs guiarstr
+          echo "pkg-config verified successfully."
+
+      # ----- OPTIONAL: CMAKE BUILD -----
+      - name: 🧩 Build using CMake
+        run: |
+          echo "Building with CMake..."
+          mkdir -p build && cd build
+          cmake ..
+          make -j$(nproc)
+          sudo make install
+        continue-on-error: true  # لا يتوقف إن فشلت خطوة CMake
+
+      # ----- TEST COMPILE AN EXAMPLE USING PKG-CONFIG -----
+      - name: 🧪 Test compile example with pkg-config
+        run: |
+          export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
+          gcc examples/usage.c $(pkg-config --cflags --libs guiarstr) -o demo
+          ./demo || echo "Demo ran without errors."

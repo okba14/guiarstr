@@ -9,7 +9,7 @@
 [![SLSA Level 3 Provenance](https://img.shields.io/badge/SLSA-Level%203-blueviolet.svg)](https://slsa.dev)
 
 
----
+
 
 ## 🚀 Why GuiarStr?
 

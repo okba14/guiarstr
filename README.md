@@ -7,6 +7,11 @@
 ![Language](https://img.shields.io/badge/Language-C-blue)
 ![Platforms](https://img.shields.io/badge/Platforms-Linux%20%7C%20macOS%20%7C%20Windows-orange)
 [![SLSA Level 3 Provenance](https://img.shields.io/badge/SLSA-Level%203-blueviolet.svg)](https://slsa.dev)
+![GitHub release (latest)](https://img.shields.io/github/v/release/okba14/guiarstr)
+![GitHub stars](https://img.shields.io/github/stars/okba14/guiarstr)
+![GitHub issues](https://img.shields.io/github/issues/okba14/guiarstr)
+
+
 
 
 

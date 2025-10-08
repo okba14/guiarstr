@@ -1,9 +1,12 @@
 # GuiarStr – Advanced String Manipulation Library for C
 
-[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](#) 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE) 
+[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Build & Test](https://github.com/okba14/guiarstr/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/okba14/guiarstr/actions/workflows/c-cpp.yml)
 [![UTF-8 Support](https://img.shields.io/badge/UTF--8-Full%20Support-orange.svg)](#)
+![Language](https://img.shields.io/badge/Language-C-blue)
+![Platforms](https://img.shields.io/badge/Platforms-Linux%20%7C%20macOS%20%7C%20Windows-orange)
+[![SLSA Level 3 Provenance](https://img.shields.io/badge/SLSA-Level%203-blueviolet.svg)](https://slsa.dev)
 
 ---
 

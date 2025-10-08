@@ -1,1 +1,46 @@
 
+# .github/SECURITY.advisory-template.yml
+# Template used when creating a new Security Advisory on GitHub.
+# Edit the fields when you create an advisory; leave placeholders as needed.
+
+title: "Short advisory title (one line)"
+summary: "One-line summary of the issue and impact."
+description: |
+  A more detailed description of the vulnerability:
+
+  - What is the bug / vuln?
+  - Which functions/files are affected?
+  - Proof of concept (if available) or reproduction steps.
+  - Example exploit or code snippet (if safe to share).
+
+severity: "high" # allowed values: low / medium / high / critical
+
+affected:
+  - package: "guiarstr"
+    ecosystem: "other"
+    versions: "< 1.3.0" # use semantic ranges (e.g., "< 1.3.0", ">= 1.2.0, < 1.3.0")
+
+references:
+  - type: "fix"        # types: fix / advisory / report / discussion / patch
+    url: "https://github.com/okba14/guiarstr/commit/EXAMPLE_COMMIT_SHA"
+  - type: "discussion"
+    url: "https://github.com/okba14/guiarstr/discussions/NN"
+
+credits:
+  - name: "Reporter Name"
+    contact: "techokba@gmail.com"  
+remediation: |
+  Describe how this can be fixed or mitigated:
+  - Provide recommended commands, configuration, or patch/commit
+  - Example: "Upgrade to version 1.3.0 or apply commit <sha>"
+
+cve: ""             # fill when CVE assigned
+disclosure: "coordinated" # options: coordinated / embargoed / full
+timeline:
+  - date: "2025-10-08"
+    event: "Reported to maintainers"
+  - date: "2025-10-10"
+    event: "Fix merged and release published"
+
+notes: |
+  Any additional notes for maintainers or downstream packagers.

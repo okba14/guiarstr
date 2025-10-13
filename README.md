@@ -143,16 +143,15 @@ Perfect for **embedded systems** to **complex multilingual software** — withou
 - Supports **byte-level** and **character-level** manipulation.
 
 ---
+# 🧰 GUIARSTR — Advanced C String Library
 
-# 🧰 GUIARSTR — Advanced C String Library  
-
-Modern, lightweight, and Unicode-aware string manipulation library in pure C.  
+Modern, lightweight, and Unicode-aware string manipulation library in pure C.
 
 ---
 
-## 📦 Installation  
+## 📦 Installation
 
-### 🧩 Option 1: Build locally  
+### 🧩 Option 1: Build locally
 ```bash
 make            # Builds static lib (libguiarstr.a) + shared lib (libguiarstr.so)
 make test       # Runs the test suite
@@ -274,13 +273,13 @@ guiarstr/
 ├── README.md
 ├── CHANGELOG.md
 └── LICENSE
+
+
 📜 License
 <picture> <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/License-MIT-blue.svg"> <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-blue.svg"> </picture>
-
-
-
 © 2025 GUIAR OQBA
 Made with 💻 & ❤️ from 🇩🇿 Algeria
+
 
 📫 Author
 Field	Info
@@ -299,7 +298,6 @@ See CHANGELOG.md for release notes.
 
 🤝 Contributing
 Contributions are welcome!
-
 Please follow these steps:
 
 bash

@@ -262,19 +262,19 @@ guiarstr/
 ├── CHANGELOG.md
 └── LICENSE
 
----
-
 ## 📜 License
 
-<div align="center">
+<p align="center">
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" />
+  </a>
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
-© 2025 **GUIAR OQBA** 🇩🇿  
-Made with 💻 & ❤️ from **Algeria**
+<p align="center">
+  © 2025 <strong>GUIAR OQBA</strong> 🇩🇿  
+  Made with 💻 & ❤️ from <strong>Algeria</strong>
+</p>
 
-</div>
-
----
 
 
 

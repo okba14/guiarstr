@@ -344,6 +344,7 @@ Open a Pull Request.
 
 
 ---
+
 ## 📜 License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
@@ -353,6 +354,7 @@ Made with 💻 & ❤️ from **Algeria**
 
 ---
 
+Thank you for your support! 🙏
 
 
 

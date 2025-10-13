@@ -1,20 +1,19 @@
-# GuiarStr – Advanced String Manipulation Library for C
+# GuiarStr - Advanced String Manipulation Library for C
 
 [![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](#)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 [![Build & Test](https://github.com/okba14/guiarstr/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/okba14/guiarstr/actions/workflows/c-cpp.yml)
 [![UTF-8 Support](https://img.shields.io/badge/UTF--8-Full%20Support-orange.svg)](#)
+
 ![Language](https://img.shields.io/badge/Language-C-blue)
 ![Platforms](https://img.shields.io/badge/Platforms-Linux%20%7C%20macOS%20%7C%20Windows-orange)
+
 [![SLSA Level 3 Provenance](https://img.shields.io/badge/SLSA-Level%203-blueviolet.svg)](https://slsa.dev)
 [![GitHub release (latest)](https://img.shields.io/github/v/release/okba14/guiarstr)](https://github.com/okba14/guiarstr/releases)
+
 [![GitHub stars](https://img.shields.io/github/stars/okba14/guiarstr)](https://github.com/okba14/guiarstr/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/okba14/guiarstr)](https://github.com/okba14/guiarstr/issues)
-
-
-
-
-
 
 
 ## 🚀 Why GuiarStr?
@@ -36,15 +35,22 @@ Perfect for **embedded systems** to **complex multilingual software** — withou
 ### 📝 Core String Operations
 
 | Function | Description |
-|----------|-------------|
+
 | `guiarstr_trim` | Removes leading and trailing whitespace. |
+
 | `guiarstr_strip` | Removes specified characters from both ends. |
+
 | `guiarstr_tolower` / `guiarstr_toupper` | Converts string to lowercase/uppercase (in-place). |
+
 | `guiarstr_reverse` | Reverses a string (**UTF-8 safe**). |
-| `guiarstr_replace` | Replaces all occurrences of a substring. |
-| `guiarstr_replace_n` | Replaces with a limit on replacements. |
-| `guiarstr_replace_char` | Replaces all occurrences of a character. |
-| `guiarstr_remove_chars` | Removes all specified characters. |
+
+| `guiarstr_replace` | Replaces all occurrences of a substring. 
+
+| `guiarstr_replace_n` | Replaces with a limit on replacements. 
+
+| `guiarstr_replace_char` | Replaces all occurrences of a 
+character.
+| `guiarstr_remove_chars` | Removes all specified characters.|
 
 ---
 
@@ -144,40 +150,41 @@ Perfect for **embedded systems** to **complex multilingual software** — withou
 
 ---
 
-# 🧰 GUIARSTR — Advanced C String Library
+## Installation
 
-Modern, lightweight, and Unicode-aware string manipulation library in pure C.
+# Option 1: Build locally 
 
----
 
-## 📦 Installation
-
-### 🧩 Option 1: Build locally
 ```bash
 make            # Builds static lib (libguiarstr.a) + shared lib (libguiarstr.so)
 make test       # Runs the test suite
 make example    # Builds usage demo
-
-🧩 Option 2: Install
+```
+# Option 2 : Install 
+```bash
 make install PREFIX=$HOME/.local
+```
+# This installs :
 
+* guiarstr.h → $PREFIX/include
 
-This installs:
+* libguiarstr.a and libguiarstr.so → $PREFIX/lib
 
-guiarstr.h → $PREFIX/include
+* guiarstr.pc → $PREFIX/lib/pkgconfig
 
-libguiarstr.a and libguiarstr.so → $PREFIX/lib
-
-guiarstr.pc → $PREFIX/lib/pkgconfig
-
-🧩 Option 3: Using CMake
+# Option 3: Using CMake
+```bash
 mkdir build && cd build
 cmake ..
 make
 sudo make install
+```
 
-🧪 Example Usage
-🔹 Basic Operations
+# 🧪 Example Usage
+
+Basic Operations : 
+
+```bash
 #include <stdio.h>
 #include "guiarstr.h"
 
@@ -196,8 +203,11 @@ int main() {
     printf("Reversed: %s\n", reversed);
     free(reversed);
 }
+```
 
-🔹 Dynamic Strings
+# Dynamic Strings
+
+```bash
 #include "guiarstr.h"
 
 int main() {
@@ -210,8 +220,11 @@ int main() {
 
     guiarstr_free(str);
 }
+```
 
-🔹 String Builder
+# String Builder 
+
+```bash
 #include "guiarstr.h"
 
 int main() {
@@ -225,8 +238,11 @@ int main() {
     guiarstr_free(result);
     guiarstr_builder_free(builder);
 }
+```
+# Unicode Operations
 
-🔹 Unicode Operations
+
+```bash
 #include "guiarstr.h"
 
 int main() {
@@ -240,15 +256,25 @@ int main() {
     free(substr);
 }
 
-🔧 Using with pkg-config
+```
+
+## 🔧 Using with pkg-config
+
+```bash
 gcc main.c $(pkg-config --cflags --libs guiarstr) -o app
+```
+### Make sure : PKG_CONFIG_PATH is set if installed 
+### to a custom location :
 
-
-Make sure PKG_CONFIG_PATH is set if installed to a custom location:
-
+```bash
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
+```
 
-📁 Project Structure
+
+# 📁 Project Structure
+### makefile
+
+```bash
 guiarstr/
 ├── include/              # Public headers
 │   └── guiarstr.h
@@ -267,39 +293,67 @@ guiarstr/
 ├── README.md
 ├── CHANGELOG.md
 └── LICENSE
+```
 
-📜 License
-<picture> <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/License-MIT-blue.svg"> <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-blue.svg"> </picture>
+---
+# 🤝Contributing
 
-© 2025 GUIAR OQBA
-Made with 💻 & ❤️ from 🇩🇿 Algeria
+ Contributions are welcome! Please feel free to submit a Pull Request.
 
-📫 Author
-Field	Info
-👤 Name	GUIAR OQBA
-📧 Email	techokba@gmail.com
+Fork the repository
+Create your feature branch 
+```bash
+(git checkout -b feature/amazing-feature)
+```
+Commit your changes 
+```bash
+(git commit -m 'Add some amazing feature')
+```
+Push to the branch 
+```bash
+(git push origin feature/amazing-feature)
+```
+Open a Pull Request.
 
-🌐 ORCID	0009-0008-1629-0002
-💼 LinkedIn	guiar-oqba
-💻 GitHub	okba14
-📚 Zenodo	15786076
-📝 Hashnode	@okba
-✈️ Telegram	@okba_elkantara
-📱 Phone	+2136-71-36-04-38
-🔄 Version History
+---
 
-See CHANGELOG.md
- for release notes.
+# 📫 Author
 
-🤝 Contributing
+👤 Name: GUIAR OQBA
 
-Contributions are welcome!
-Please follow these steps:
+📧 Email: techokba@gmail.com
 
-# Fork the repository
-git checkout -b feature/amazing-feature
-git commit -m 'Add some amazing feature'
-git push origin feature/amazing-feature
+🌐 ORCID: 0009-0008-1629-0002
+
+💼 LinkedIn: guiar-oqba
+
+💻 GitHub: okba14
+
+📚 Zenodo: 15786076
+
+📝 Hashnode: @okba
+
+✈️ Telegram: @okba_elkantara
+
+📱 Phone: +2136-71-36-04-38
+
+---
+
+# 🔄 Version History
+### See CHANGELOG.md for release notes.
 
 
-Then open a Pull Request 🚀
+---
+## 📜 License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
+© 2025 **GUIAR OQBA** 🇩🇿  
+Made with 💻 & ❤️ from **Algeria**
+
+
+---
+
+
+
+
+

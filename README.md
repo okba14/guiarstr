@@ -144,27 +144,23 @@ Perfect for **embedded systems** to **complex multilingual software** — withou
 
 ---
 
-## 📦 Installation
-
-### **Option 1: Build locally**
-
-```bash
+📦 Installation
+Option 1: Build locally
 make            # Builds static lib (libguiarstr.a) + shared lib (libguiarstr.so)
 make test       # Runs the test suite
 make example    # Builds usage demo
-Option 2: Install
 
+Option 2: Install
 make install PREFIX=$HOME/.local
+
+
 This installs:
 
 guiarstr.h → $PREFIX/include
-
 libguiarstr.a and libguiarstr.so → $PREFIX/lib
-
 guiarstr.pc → $PREFIX/lib/pkgconfig
 
 Option 3: Using CMake
-
 mkdir build && cd build
 cmake ..
 make
@@ -172,7 +168,6 @@ sudo make install
 
 🧪 Example Usage
 Basic Operations
-
 #include <stdio.h>
 #include "guiarstr.h"
 
@@ -191,8 +186,8 @@ int main() {
     printf("Reversed: %s\n", reversed);
     free(reversed);
 }
-Dynamic Strings
 
+Dynamic Strings
 #include "guiarstr.h"
 
 int main() {
@@ -205,8 +200,8 @@ int main() {
 
     guiarstr_free(str);
 }
-String Builder
 
+String Builder
 #include "guiarstr.h"
 
 int main() {
@@ -220,8 +215,8 @@ int main() {
     guiarstr_free(result);
     guiarstr_builder_free(builder);
 }
-Unicode Operations
 
+Unicode Operations
 #include "guiarstr.h"
 
 int main() {
@@ -234,10 +229,13 @@ int main() {
     printf("Substring [2:4]: '%s'\n", substr);
     free(substr);
 }
-🔧 Using with pkg-config
 
+🔧 Using with pkg-config
 gcc main.c $(pkg-config --cflags --libs guiarstr) -o app
+
+
 Make sure PKG_CONFIG_PATH is set if installed to a custom location:
+
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
 
 📁 Project Structure
@@ -262,28 +260,20 @@ guiarstr/
 ├── CHANGELOG.md
 └── LICENSE
 
-
-
-## 📜 License
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/License-MIT-blue.svg">
-  <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-blue.svg">
-</picture>
-
-![Made in Algeria](https://img.shields.io/badge/Made%20in-Algeria-success?style=flat&logo=opensourceinitiative&logoColor=white)
-![Flag](https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/icons/32x24/dz.png)
-
-© **2025 GUIAR OQBA**  
-Made with 💻 & ❤️ from 🇩🇿 **Algeria**
+📜 License
+<picture> <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/License-MIT-blue.svg"> <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-blue.svg"> </picture>
 
 
 
 
+© 2025 GUIAR OQBA
+Made with 💻 & ❤️ from 🇩🇿 Algeria
 
 📫 Author
+
 👤 Name: GUIAR OQBA
 📧 Email: techokba@gmail.com
+
 🌐 ORCID: 0009-0008-1629-0002
 💼 LinkedIn: guiar-oqba
 💻 GitHub: okba14
@@ -293,14 +283,18 @@ Made with 💻 & ❤️ from 🇩🇿 **Algeria**
 📱 Phone: +2136-71-36-04-38
 
 🔄 Version History
+
 See CHANGELOG.md for release notes.
 
 🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
 
-Fork the repository
-Create your feature branch (git checkout -b feature/amazing-feature)
-Commit your changes (git commit -m 'Add some amazing feature')
-Push to the branch (git push origin feature/amazing-feature)
-Open a Pull Request.
+Contributions are welcome!
+Please feel free to submit a Pull Request:
 
+# Fork the repository
+git checkout -b feature/amazing-feature
+git commit -m 'Add some amazing feature'
+git push origin feature/amazing-feature
+
+
+Then open a Pull Request 🚀

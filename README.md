@@ -143,6 +143,7 @@ Perfect for **embedded systems** to **complex multilingual software** — withou
 - Supports **byte-level** and **character-level** manipulation.
 
 ---
+
 # 🧰 GUIARSTR — Advanced C String Library
 
 Modern, lightweight, and Unicode-aware string manipulation library in pure C.
@@ -156,10 +157,11 @@ Modern, lightweight, and Unicode-aware string manipulation library in pure C.
 make            # Builds static lib (libguiarstr.a) + shared lib (libguiarstr.so)
 make test       # Runs the test suite
 make example    # Builds usage demo
+
 🧩 Option 2: Install
-bash
-Copy code
 make install PREFIX=$HOME/.local
+
+
 This installs:
 
 guiarstr.h → $PREFIX/include
@@ -169,16 +171,13 @@ libguiarstr.a and libguiarstr.so → $PREFIX/lib
 guiarstr.pc → $PREFIX/lib/pkgconfig
 
 🧩 Option 3: Using CMake
-bash
-Copy code
 mkdir build && cd build
 cmake ..
 make
 sudo make install
+
 🧪 Example Usage
 🔹 Basic Operations
-c
-Copy code
 #include <stdio.h>
 #include "guiarstr.h"
 
@@ -197,9 +196,8 @@ int main() {
     printf("Reversed: %s\n", reversed);
     free(reversed);
 }
+
 🔹 Dynamic Strings
-c
-Copy code
 #include "guiarstr.h"
 
 int main() {
@@ -212,9 +210,8 @@ int main() {
 
     guiarstr_free(str);
 }
+
 🔹 String Builder
-c
-Copy code
 #include "guiarstr.h"
 
 int main() {
@@ -228,9 +225,8 @@ int main() {
     guiarstr_free(result);
     guiarstr_builder_free(builder);
 }
+
 🔹 Unicode Operations
-c
-Copy code
 #include "guiarstr.h"
 
 int main() {
@@ -243,18 +239,16 @@ int main() {
     printf("Substring [2:4]: '%s'\n", substr);
     free(substr);
 }
+
 🔧 Using with pkg-config
-bash
-Copy code
 gcc main.c $(pkg-config --cflags --libs guiarstr) -o app
+
+
 Make sure PKG_CONFIG_PATH is set if installed to a custom location:
 
-bash
-Copy code
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
+
 📁 Project Structure
-makefile
-Copy code
 guiarstr/
 ├── include/              # Public headers
 │   └── guiarstr.h
@@ -274,17 +268,17 @@ guiarstr/
 ├── CHANGELOG.md
 └── LICENSE
 
-
 📜 License
 <picture> <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/License-MIT-blue.svg"> <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-blue.svg"> </picture>
+
 © 2025 GUIAR OQBA
 Made with 💻 & ❤️ from 🇩🇿 Algeria
-
 
 📫 Author
 Field	Info
 👤 Name	GUIAR OQBA
 📧 Email	techokba@gmail.com
+
 🌐 ORCID	0009-0008-1629-0002
 💼 LinkedIn	guiar-oqba
 💻 GitHub	okba14
@@ -292,18 +286,20 @@ Field	Info
 📝 Hashnode	@okba
 ✈️ Telegram	@okba_elkantara
 📱 Phone	+2136-71-36-04-38
-
 🔄 Version History
-See CHANGELOG.md for release notes.
+
+See CHANGELOG.md
+ for release notes.
 
 🤝 Contributing
+
 Contributions are welcome!
 Please follow these steps:
 
-bash
-Copy code
 # Fork the repository
 git checkout -b feature/amazing-feature
 git commit -m 'Add some amazing feature'
 git push origin feature/amazing-feature
+
+
 Then open a Pull Request 🚀

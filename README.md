@@ -144,30 +144,42 @@ Perfect for **embedded systems** to **complex multilingual software** — withou
 
 ---
 
-📦 Installation
-Option 1: Build locally
+# 🧰 GUIARSTR — Advanced C String Library  
+
+Modern, lightweight, and Unicode-aware string manipulation library in pure C.  
+
+---
+
+## 📦 Installation  
+
+### 🧩 Option 1: Build locally  
+```bash
 make            # Builds static lib (libguiarstr.a) + shared lib (libguiarstr.so)
 make test       # Runs the test suite
 make example    # Builds usage demo
-
-Option 2: Install
+🧩 Option 2: Install
+bash
+Copy code
 make install PREFIX=$HOME/.local
-
-
 This installs:
 
 guiarstr.h → $PREFIX/include
+
 libguiarstr.a and libguiarstr.so → $PREFIX/lib
+
 guiarstr.pc → $PREFIX/lib/pkgconfig
 
-Option 3: Using CMake
+🧩 Option 3: Using CMake
+bash
+Copy code
 mkdir build && cd build
 cmake ..
 make
 sudo make install
-
 🧪 Example Usage
-Basic Operations
+🔹 Basic Operations
+c
+Copy code
 #include <stdio.h>
 #include "guiarstr.h"
 
@@ -186,8 +198,9 @@ int main() {
     printf("Reversed: %s\n", reversed);
     free(reversed);
 }
-
-Dynamic Strings
+🔹 Dynamic Strings
+c
+Copy code
 #include "guiarstr.h"
 
 int main() {
@@ -200,8 +213,9 @@ int main() {
 
     guiarstr_free(str);
 }
-
-String Builder
+🔹 String Builder
+c
+Copy code
 #include "guiarstr.h"
 
 int main() {
@@ -215,8 +229,9 @@ int main() {
     guiarstr_free(result);
     guiarstr_builder_free(builder);
 }
-
-Unicode Operations
+🔹 Unicode Operations
+c
+Copy code
 #include "guiarstr.h"
 
 int main() {
@@ -229,18 +244,18 @@ int main() {
     printf("Substring [2:4]: '%s'\n", substr);
     free(substr);
 }
-
 🔧 Using with pkg-config
+bash
+Copy code
 gcc main.c $(pkg-config --cflags --libs guiarstr) -o app
-
-
 Make sure PKG_CONFIG_PATH is set if installed to a custom location:
 
+bash
+Copy code
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
-
 📁 Project Structure
 makefile
-
+Copy code
 guiarstr/
 ├── include/              # Public headers
 │   └── guiarstr.h
@@ -259,10 +274,8 @@ guiarstr/
 ├── README.md
 ├── CHANGELOG.md
 └── LICENSE
-
 📜 License
 <picture> <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/License-MIT-blue.svg"> <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-blue.svg"> </picture>
-
 
 
 
@@ -270,31 +283,29 @@ guiarstr/
 Made with 💻 & ❤️ from 🇩🇿 Algeria
 
 📫 Author
-
-👤 Name: GUIAR OQBA
-📧 Email: techokba@gmail.com
-
-🌐 ORCID: 0009-0008-1629-0002
-💼 LinkedIn: guiar-oqba
-💻 GitHub: okba14
-📚 Zenodo: 15786076
-📝 Hashnode: @okba
-✈️ Telegram: @okba_elkantara
-📱 Phone: +2136-71-36-04-38
+Field	Info
+👤 Name	GUIAR OQBA
+📧 Email	techokba@gmail.com
+🌐 ORCID	0009-0008-1629-0002
+💼 LinkedIn	guiar-oqba
+💻 GitHub	okba14
+📚 Zenodo	15786076
+📝 Hashnode	@okba
+✈️ Telegram	@okba_elkantara
+📱 Phone	+2136-71-36-04-38
 
 🔄 Version History
-
 See CHANGELOG.md for release notes.
 
 🤝 Contributing
-
 Contributions are welcome!
-Please feel free to submit a Pull Request:
 
+Please follow these steps:
+
+bash
+Copy code
 # Fork the repository
 git checkout -b feature/amazing-feature
 git commit -m 'Add some amazing feature'
 git push origin feature/amazing-feature
-
-
 Then open a Pull Request 🚀

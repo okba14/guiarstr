@@ -262,9 +262,12 @@ guiarstr/
 ├── CHANGELOG.md
 └── LICENSE
 
-📄 License
-Licensed under the MIT License
-© GUIAR OQBA
+## 📄 License
+
+Licensed under the [MIT License](LICENSE)
+
+© 2025 **GUIAR OQBA** 🇩🇿
+
 
 📫 Author
 👤 Name: GUIAR OQBA

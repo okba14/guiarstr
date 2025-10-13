@@ -262,19 +262,20 @@ guiarstr/
 ├── CHANGELOG.md
 └── LICENSE
 
+
+
 ## 📜 License
 
-<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/License-MIT-blue.svg">
+  <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-blue.svg">
+</picture>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
-![Country](https://img.shields.io/badge/Made%20in-Algeria-green?style=flat&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABUUlEQVQ4T6WTvUoDQRCFv7NgNARJCZKIUYyZKCsJAsKkFMQuKisrGxF3hH4zdkxVb+BdKYmKKxk5MZC4sW1kzC6FzPHt3792b2wh4MIIqqmoiH5OIp+Hx5Dco+Wf8gxiE64z1JIzjAwzFzFokq4v3lIpSWmZ7mWhTTVNzrDKNH+5QmmQXKpFykZRFtM4BkC8S7KqVqwqxIVvRQI/XC2Hln2AkxvDcwIbXVZ6AbK6y2Btb5VkbV9mYkULuB9RfxhiSQEm+DrW12Vz1GeuBrG8B7twDlsfDXY1RkEAYBHYbTG+LyQF3QHqMgG+vw7QB76yTVx+Hczz/Z+IfdbHT2xXk7GLwHMeX4DIqijrzK0uFJg1AUFXJKmucVKKZlz5Gn/6gA4uAAwDbLtCBuFfNE+wCuzTh0Dh1zHuD9ByX5Gv6TLrYAAAAAElFTkSuQmCC)
+![Made in Algeria](https://img.shields.io/badge/Made%20in-Algeria-success?style=flat&logo=opensourceinitiative&logoColor=white)
+![Flag](https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/icons/32x24/dz.png)
 
 © **2025 GUIAR OQBA**  
 Made with 💻 & ❤️ from 🇩🇿 **Algeria**
-
-</div>
-
----
 
 
 
